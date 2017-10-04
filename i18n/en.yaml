@@ -22,6 +22,9 @@
 - id: btn_pdf
   translation: PDF
 
+- id: btn_bibtex
+  translation: Bibtex
+
 - id: btn_slides
   translation: Slides
 
