@@ -86,11 +86,13 @@
       {{ end }}
     </div>
     <h3> Details </h3>
-    {{ range $page.Params.bio.details }}
+    {{ $.Scratch.Set "recent_pubs" (where $.Data.Pages "Type" "bio") }}
+    {{ $recent_pubs := $.Scratch.Get "recent_pubs" }}
+    {{ range  $recent_pubs }}
     <div class="row">
-	    <div class="col-sm-9"> {{ .description | markdownify }}  </div>
-      <div class="col-sm-2">
-	      <img src="{{ $.Site.BaseURL }}img/{{ .img }}" width="90%"/>
+	    <div class="col-sm-8"> {{ .Content | markdownify }}  </div>
+      <div class="col-sm-3">
+	      <img src="{{ $.Site.BaseURL }}img/{{ .Params.img }}" width="90%"/>
       </div>
     </div>
     {{ end }} 
