@@ -1,0 +1,37 @@
+<div class="pub-list-item" itemscope itemtype="http://schema.org/CreativeWork">
+  <div class="row">
+    <div class="col-md-12">
+
+
+      <h3 class="article-title" itemprop="name">
+        <a href="{{ .Permalink }}" itemprop="url">{{ .Title }}</a>
+      </h3>
+
+      <div class="talk-abstract" itemprop="text">
+        {{ if .Params.abstract_short }}
+        {{ .Params.abstract_short }}
+        {{ else }}
+        {{ .Params.abstract }}
+        {{ end }}
+      </div>
+
+      <div class="talk-event">
+        {{ if .Params.event }}
+          {{ .Params.event | markdownify }}
+        {{ else if .Params.event_short }}
+          {{ .Params.event_short | markdownify }}
+        {{ end }}
+      </div>
+
+    </div>
+ 
+    {{ if .Params.header.vimeo }}
+
+    <div class="col-md-12">
+	    <iframe src="https://player.vimeo.com/video/{{ .Params.header.vimeo }}" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+    
+    {{ end }}
+
+ </div>
+</div>
